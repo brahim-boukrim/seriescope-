@@ -8,7 +8,55 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body class="m-0 bg-black">
+    <header class="p-4 flex justify-start items-center gap-1">
+        <div class="bg-white  p-3 py-2.5 rounded-md w-fit"> <i class="fa-solid fa-clapperboard "></i></div>
+        <p class="text-white text-2xl font-bold">Sériescope</p>
+    </header>
+    <section class="px-4 py-8 text-white">
+        <h1 class="text-3xl font-bold">Explore les séries TV</h1>
+        <p class="text-md text-gray-400">Retrouve tes séries préférées et enrichis le catalogue.</p>
+        <form class=" border-2 border-[#393939] p-2 rounded-xl mt-3 flex flex-col justify-between gap-1">
+            <h2>Ajouter une série</h2>
+            <p class="text-md text-gray-400">Les champs marqués d’un * sont obligatoires.</p>
+            <div class="flex flex-col justify-between gap-0.5 mb-0.5"><label>Nom de la série *</label>
+            <input class="border-2 border-[#393939] rounded-md p-1.5" type="text" placeholder="Ex. The Bear"></div>
+            <div class="flex flex-col justify-between gap-0.5 mb-0.5"><label>Genre(s) *<span class="ml-1 text-md text-gray-400">séparés par des virgules</span></label>
+            <input class="border-2 border-[#393939] rounded-md p-1.5" type="text" placeholder="Ex. Drame, Comédie"></div>
+            <div class="flex flex-col justify-between gap-0.5 mb-0.5">
+            <label>Description<span class="ml-1 text-md text-gray-400">facultative</span></label>
+            <textarea placeholder="Résume la série en quelques mots…" class="border-2 border-[#393939] rounded-md p-1.5 resize-none"></textarea>
+            </div>
+
+            <div class="w-full flex justify-center py-3"><button class="bg-white w-full h-10 rounded-md text-black "><i class="fa-solid fa-plus"></i> Ajouter la série</button></div>
+        </form>
+
+    </section>
+    <section class="text-white p-4">
+        <h2 class="font-bold text-2xl">Catalogue des séries</h2>
+        <p class=" text-md text-gray-400">Recherche par nom ou explore un genre.</p>
+
+        <form class=" border-2 border-[#393939] p-2 rounded-xl mt-3">
+            <div class="flex flex-col justify-center py-2">
+                <label class="text-xl" >Recherche</label>
+                <input class="border-2 border-[#393939] rounded-md p-1.5" type="text" placeholder="Ex. Breaking Bad">
+            </div>
+            <div class="flex justify-start gap-2">
+                <div class="flex flex-col justify-center w-[50%]">
+                    <label>Genre</label>
+                    <select id="filtre" class="border-2 border-[#393939] rounded-md p-1.5 w-full">
+                        <option value="">tous les genre</option>
+                    </select>
+                </div>
+                    <button class="border-2 border-[#393939] rounded-md h-fit w-[50%] p-1.5 mt-auto"><i class="fa-solid fa-rotate-right"></i> Réinitialiser</button>
+            </div>
+        </form>
+
+    </section>
     
+    <section class="p-4">
+        <p class="text-white">6 séries affichées</p>
+        <div id="show"></div>
+    </section>
     <script src="index.js"></script>
 </body>
 </html>
