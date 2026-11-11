@@ -40,12 +40,12 @@
         <form class=" border-2 border-[#393939] p-2 rounded-xl mt-3 grid grid-cols-1 gap-1.5 md:grid-cols-2">
             <div class="flex flex-col justify-end ">
                 <label class="text-xl" >Recherche</label>
-                <input class="border-2 border-[#393939] rounded-md p-1.5" type="text" placeholder="Ex. Breaking Bad">
+                <input id="lookup" class="border-2 border-[#393939] rounded-md p-1.5" type="text" placeholder="Ex. Breaking Bad">
             </div>
             <div class="flex items-end gap-1.5">
                 <div class="flex flex-col  justify-center w-full">
                     <label class="">Genre</label>
-                    <select id="filtre" class="border-2 border-[#393939] rounded-md p-1.5 w-full h-[39.2px]">
+                    <select id="filtre" class="border-2 border-[#393939] rounded-md p-1.5 w-full h-[39.2px] bg-black">
                         <option value="">tous les genre</option>
                     </select>
                 </div>
@@ -56,7 +56,7 @@
     </section>
     
     <section  class="p-4">
-        <p class="text-white">6 séries affichées</p>
+        <p id="counter" class="text-white">20 séries affichées</p>
         <div id="show" class="grid grid-cols-1 p-4 gap-5 text-white  md:grid-cols-3">
             <div class="rounded-t-2xl">
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAC/CAMAAAD6m9FeAAAACVBMVEX///95qvf///zq7SvVAAAA10lEQVR4nO3PAQEAAAiAoOr/6IYgD5i9EdWW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1IY8Et4CPjLRkekAAAAASUVORK5CYII=" alt="the blasphemer" class="rounded-t-2xl  w-full h-[176.25px]">
