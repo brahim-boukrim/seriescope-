@@ -265,8 +265,38 @@
   .h-45 {
     height: calc(var(--spacing) * 45);
   }
+  .h-70 {
+    height: calc(var(--spacing) * 70);
+  }
+  .h-100 {
+    height: calc(var(--spacing) * 100);
+  }
   .h-\[39\.2px\] {
     height: 39.2px;
+  }
+  .h-\[45px\] {
+    height: 45px;
+  }
+  .h-\[176\.25\] {
+    height: 176.25;
+  }
+  .h-\[176\.25px\] {
+    height: 176.25px;
+  }
+  .h-\[200px\] {
+    height: 200px;
+  }
+  .h-\[250pw\] {
+    height: 250pw;
+  }
+  .h-\[250px\] {
+    height: 250px;
+  }
+  .h-\[450px\] {
+    height: 450px;
+  }
+  .h-\[px\] {
+    height: px;
   }
   .h-fit {
     height: fit-content;
@@ -288,6 +318,12 @@
   }
   .w-\[100\%\] {
     width: 100%;
+  }
+  .w-\[313\.3299865722656\] {
+    width: 313.3299865722656;
+  }
+  .w-\[313\.3299865722656px\] {
+    width: 313.3299865722656px;
   }
   .w-fit {
     width: fit-content;
@@ -358,6 +394,9 @@
   .gap-4 {
     gap: calc(var(--spacing) * 4);
   }
+  .gap-5 {
+    gap: calc(var(--spacing) * 5);
+  }
   .rounded-2xl {
     border-radius: var(--radius-2xl);
   }
@@ -366,6 +405,26 @@
   }
   .rounded-xl {
     border-radius: var(--radius-xl);
+  }
+  .rounded-t {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+  }
+  .rounded-t-2xl {
+    border-top-left-radius: var(--radius-2xl);
+    border-top-right-radius: var(--radius-2xl);
+  }
+  .rounded-r-2xl {
+    border-top-right-radius: var(--radius-2xl);
+    border-bottom-right-radius: var(--radius-2xl);
+  }
+  .rounded-b {
+    border-bottom-right-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+  }
+  .rounded-b-2xl {
+    border-bottom-right-radius: var(--radius-2xl);
+    border-bottom-left-radius: var(--radius-2xl);
   }
   .border {
     border-style: var(--tw-border-style);
@@ -393,6 +452,12 @@
   .border-gray-900 {
     border-color: var(--color-gray-900);
   }
+  .bg-\[\#191919\] {
+    background-color: #191919;
+  }
+  .bg-\[\#292929\] {
+    background-color: #292929;
+  }
   .bg-black {
     background-color: var(--color-black);
   }
@@ -416,6 +481,9 @@
   }
   .px-1 {
     padding-inline: var(--spacing);
+  }
+  .px-1\.5 {
+    padding-inline: calc(var(--spacing) * 1.5);
   }
   .px-4 {
     padding-inline: calc(var(--spacing) * 4);
@@ -480,6 +548,9 @@
   .font-bold {
     --tw-font-weight: var(--font-weight-bold);
     font-weight: var(--font-weight-bold);
+  }
+  .text-\[\#191919\] {
+    color: #191919;
   }
   .text-black {
     color: var(--color-black);
