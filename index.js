@@ -3,19 +3,20 @@ const library=localStorage.getItem("library")!=null ? JSON.parse(localStorage.ge
 const submit=document.querySelector("#submit")
 fetch(url).then(elm=>elm.json()).then(elm=>{
 const table=[...library,...elm]
-let start=0;
-afichier(table.slice(start,start+20))
+let end=10;
+afichier(table.slice(0,end))
 const ajouter=(e)=>{
     e.preventDefault()
     let obj={}
     obj.name=nom.value.trim()
     obj.summary=description.value.trim()
     obj.genres=genre.value.split(",").map(elm=>elm.trim())
-    if(obj.name.trim()==""||obj.summary.trim()==""||obj.genres.indexOf("")!=-1||obj.genres.some((elm)=>elm.includes(" "))){
+    if(obj.name.trim()==""||obj.summary.trim()==""||obj.genres.indexOf("")!=-1||obj.genres.some((elm)=>elm.includes(" "))&&photo.value!=""){
          alert("Veuillez remplir tous les champs")
         return
     }
-    obj.image={medium:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKCVOBum3fzI4RBr4iGtSWFihXMSP9kSuf9aSeXJUk1A&s=10"}
+
+    obj.image={medium:URL.createObjectURL(photo.files[0])}
 
     table.unshift(obj)
 
@@ -23,30 +24,40 @@ const ajouter=(e)=>{
     nom.value=""
     description.value=""
     genre.value=""
+    photo.value=""
     localStorage.setItem("library",JSON.stringify(library))
-    afichier(table.slice(start,start+20))
+    afichier(lookup(filt()))
     
     
 }
+
 const filt=()=>{
+    last=filtre.value
     if(filtre.value==""){
-        return table.slice(start,start+20)
+        return table
     }
-    return table.slice(start,start+20).filter(elm=>elm.genres.includes(filtre.value))
+    return table.filter(elm=>elm.genres.includes(filtre.value))
 }
 const lookup=(tab)=>{
     return tab.filter(elm=>elm.name.toLowerCase().includes(search.value.toLowerCase()))
 }
 filtre.addEventListener("change",()=>{
-    afichier(lookup(filt()))
+    afichier(lookup(filt()).slice(0,end))
 })
 search.addEventListener("input",()=>{
-        afichier(lookup(filt()))
+        afichier(lookup(filt()).slice(0,end))
 
 })
 submit.addEventListener("click",ajouter)
+pages.addEventListener("click",()=>{
+    end+=10;
+    afichier(lookup(filt()))
 })
+})
+let last;
 const show=document.querySelector("#show")
+const photo=document.querySelector("#photo")
+
 const pages=document.querySelector("#pages")
 const nom=document.querySelector("#nom")
 const description=document.querySelector("#description")
@@ -55,11 +66,11 @@ const filtre=document.querySelector("#filtre")
 const counter=document.querySelector("#counter")
 const search=document.querySelector("#lookup")
 
+const types=[]
 
 const afichier=(tab)=>{
     show.innerHTML=""
     filtre.innerHTML=""
-    const types=[]
     
     for(let i=0;i<tab.length;i++){
         const div=document.createElement("div")
@@ -78,35 +89,52 @@ const afichier=(tab)=>{
             p.textContent=element
             p.className="bg-[#292929] w-fit text-center rounded-xl px-1.5"
             badge.append(p)
-            if(types.indexOf(element)==-1){
+            if(!types.includes(element)){
                 types.push(element)
             }
         });
         badge.className="flex justify-start gap-2"
         const descri=document.createElement("p")
-        descri.className="text-md text-gray-400"
-        let index=tab[i].summary.indexOf("</b>")
-        if(index!=-1&&tab[i].summary[1]=="b"){
-            descri.textContent=tab[i].summary.slice(index+4,60).replace("</p>","")+"..."
-        }
-        else{
-            descri.textContent=tab[i].summary.slice(3,55).replace("</p>","").replace("<b>","").replace("</b>","") +"..."
-        }
+        descri.className="text-md text-gray-400 line-clamp-1"
         
+        descri.innerHTML=tab[i].summary
+        
+        const a=document.createElement("a")
+        if(tab[i].url){
+            a.href=tab[i].url
+        }
+        a.append(img)
         show.append(div)
-        div.append(img,text)
+        div.append(a,text)
         text.append(title,badge,descri)
+        console.log(types);
+        
     }
-   const option1=document.createElement("option")
-        option1.value=""
-        option1.textContent="tous les genre"
-        filtre.append(option1)
+    counter.textContent=show.children.length+" séries affichées"
+    
+
+        const option1=document.createElement("option")
+             option1.value=""
+             option1.textContent="tous les genre"
+             filtre.prepend(option1)
+    
+    
+    
     types.forEach(elm=>{
         
         const option=document.createElement("option")
         option.value=elm
         option.textContent=elm
-        filtre.append(option)
+        
+
+            filtre.append(option)
+        
+    })
+    document.querySelectorAll("option").forEach(elm=>{
+        if(elm.value==last){
+            elm.selected=true
+        }
+
     })
 }
 
