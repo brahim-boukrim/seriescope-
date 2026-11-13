@@ -29,7 +29,9 @@
             <textarea id="description" placeholder="Résume la série en quelques mots…" class="border-2 border-[#393939] rounded-md p-1.5 resize-none"></textarea>
             </div>
 
-            <div class="w-full flex justify-center py-3  md:justify-start "><button id="submit" class="bg-white w-full h-10 rounded-md text-black md:w-40"><i class="fa-solid fa-plus"></i> Ajouter la série</button></div>
+            <div class="w-full flex justify-between py-3 gap-12 ">  
+                    <div class="bg-amber-200 flex justify-center items-center w-full rounded-md md:w-40"><input type="file" accept="image/*" id="photo" class=" text-black w-27.5  file:hidden" ></div>
+                     <button id="submit" class="bg-white  h-10 rounded-md text-black w-full md:w-40"><i class="fa-solid fa-plus"></i> Ajouter la série</button></div>
         </form>
 
     </section>
@@ -56,8 +58,8 @@
     </section>
     
     <section  class="p-4">
-        <p id="counter" class="text-white">20 séries affichées</p>
-        <div id="show" class="grid grid-cols-1 p-4 gap-5 text-white  md:grid-cols-3">
+        <p id="counter" class="text-white">10 séries affichées</p>
+        <div id="show" class="grid grid-cols-1  gap-5 text-white  md:grid-cols-3">
             <div class="rounded-t-2xl">
                 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAC/CAMAAAD6m9FeAAAACVBMVEX///95qvf///zq7SvVAAAA10lEQVR4nO3PAQEAAAiAoOr/6IYgD5i9EdWW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1IY8Et4CPjLRkekAAAAASUVORK5CYII=" alt="the blasphemer" class="rounded-t-2xl  w-full h-[176.25px]">
                 <div class="text bg-[#191919] p-4 rounded-b-2xl">
@@ -88,7 +90,8 @@
 
         </div>
     </section>
-    <div class="flex justify-center text-white py-8"><div id="pages">h</div> </div>
+    <div class="w-full flex justify-center pb-10">    <div class=" py-1.5 px-4 rounded-xl  text-white border-2 border-[#393939] cursor-pointer" id="pages">show more</div> 
+</div>
     <script src="index.js"></script>
 </body>
 </html>
