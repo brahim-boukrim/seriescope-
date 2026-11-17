@@ -8,7 +8,7 @@ export const create=async ( name, language, genre ) =>(await api.post(`/series/`
 
 export const update=async (id,name,genre,language)=>await api.patch(`/series/${id}`,{name,language,genre:genre})
 
-export const del = async (id)=>await api.delete(`/series/${id}`)
+export const remove = async (id)=>await api.delete(`/series/${id}`)
 
 export const reset =async ()=>await api.post(`/reset`)
 
