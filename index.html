@@ -40,7 +40,7 @@
         <p class=" text-md text-gray-400">Recherche par nom ou explore un genre.</p>
 
         <form class=" border-2 border-[#393939] p-2 rounded-xl mt-3 grid grid-cols-1 gap-1.5 md:grid-cols-2">
-            <div class="flex flex-col justify-end ">
+            <div class="flex flex-col justify-end md:col-span-3">
                 <label class="text-xl" >Recherche</label>
                 <input id="lookup" class="border-2 border-[#393939] rounded-md p-1.5" type="text" placeholder="Ex. Breaking Bad">
             </div>
@@ -51,8 +51,16 @@
                         <option value="">tous les genre</option>
                     </select>
                 </div>
-                    <button class="w-full border-2 border-[#393939] rounded-md  h-fit p-1.5 "><i class="fa-solid fa-rotate-right"></i> Réinitialiser</button>
+                <div class="flex flex-col  justify-center w-full">
+                    <label class="">language</label>
+                    <select id="language" class="border-2 border-[#393939] rounded-md p-1.5 w-full h-[39.2px] bg-black">
+                        <option value="">tous les langues</option>
+                    </select>
+                </div>
             </div>
+                    <button class="w-full border-2 border-[#393939] rounded-md md:mt-9  h-fit p-1.5 "><i class="fa-solid fa-rotate-right"></i> Réinitialiser</button>
+            </div>
+            
         </form>
 
     </section>
@@ -60,37 +68,12 @@
     <section  class="p-4">
         <p id="counter" class="text-white">10 séries affichées</p>
         <div id="show" class="grid grid-cols-1  gap-5 text-white  md:grid-cols-3">
-            <div class="rounded-t-2xl">
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAC/CAMAAAD6m9FeAAAACVBMVEX///95qvf///zq7SvVAAAA10lEQVR4nO3PAQEAAAiAoOr/6IYgD5i9EdWW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1JbUltSW1IY8Et4CPjLRkekAAAAASUVORK5CYII=" alt="the blasphemer" class="rounded-t-2xl  w-full h-[176.25px]">
-                <div class="text bg-[#191919] p-4 rounded-b-2xl">
-                    <h3 class="text-xl">sEFGHK</h3>
-                    <div class="badge flex justify-start gap-2"><p class="bg-[#292929] w-fit text-center rounded-xl px-1.5">hfhffgf</p> <p class="bg-[#292929] w-fit text-center rounded-xl px-1.5">ababababb</p> </div>
-                    <p class="text-md text-gray-400">jhdfkkhwkd</p>
-                </div>
-                
-            </div>
-            <div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeopdi8fi7r4Em4kPFwMOPryeUgKkch13il0Zac6pqUg&s=10" alt="the blasphemer" class="w-full h-[176.25px]">
-                <div class="text">
-                    <h3>sEFGHK</h3>
-                    <div class="badge"><p>fgf</p> <p>gffhh</p> </div>
-                    <p >jhdfkkhwkd</p>
-                </div>
-                
-            </div>
-            <div>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeopdi8fi7r4Em4kPFwMOPryeUgKkch13il0Zac6pqUg&s=10" alt="the blasphemer" class="w-full h-[176.25px]">
-                <div class="text">
-                    <h3>sEFGHK</h3>
-                    <div class="badge"><p>fgf</p> <p>gffhh</p> </div>
-                    <p>jhdfkkhwkd</p>
-                </div>
-                
-            </div>
-
+           
         </div>
+        <div class="w-full py-2 text-white flex justify-center text-3xl " id="empty">no result was found !</div>
     </section>
-    <div class="w-full flex justify-center pb-10">    <div class=" py-1.5 px-4 rounded-xl  text-white border-2 border-[#393939] cursor-pointer" id="pages">show more</div> 
+    <div class="w-full flex justify-center pb-10">
+            <div class=" py-1.5 px-4 rounded-xl  text-white border-2 border-[#393939] cursor-pointer" id="pages">show more</div> 
 </div>
     <script type="module" src="src/main.js"></script>
 </body>
