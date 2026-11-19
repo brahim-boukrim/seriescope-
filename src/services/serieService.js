@@ -1,6 +1,6 @@
 import { api } from "./api.js"
 
-export const getAll = async () => (await api.get(`/series`)).data
+export const getAll = async (searche="",filtre="",lang="") => (await api.get(`/series`,{params:{"name":searche,"genre":filtre,language:lang}})).data
 
 export const getById =async (id)=>(await api.get(`/series/${id}`)).data
 
@@ -11,5 +11,4 @@ export const update=async (id,name,genre,language)=>await api.patch(`/series/${i
 export const remove = async (id)=>await api.delete(`/series/${id}`)
 
 export const reset =async ()=>await api.post(`/reset`)
-
 
