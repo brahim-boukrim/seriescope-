@@ -4,7 +4,7 @@ export const getAll = async (searche="",filtre="",lang="") => (await api.get(`/s
 
 export const getById =async (id)=>(await api.get(`/series/${id}`)).data
 
-export const create=async ( name, language, genre ) =>(await api.post(`/series/`,{name,language,genres: genre}))
+export const create=async (obj) =>(await api.post(`/series/`,obj)).data
 
 export const update=async (id,name,genre,language)=>await api.patch(`/series/${id}`,{name,language,genre:genre})
 
