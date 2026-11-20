@@ -1,10 +1,21 @@
+import { toggle } from "../data/store.js"
+import { update,remove } from "../services/serieService.js"
 const counter=document.querySelector("#counter")
 const show=document.querySelector("#show")
 const empty=document.querySelector("#empty")
+const nom=document.querySelector("#nom")
+const description=document.querySelector("#description")
+const genre=document.querySelector("#genre")
+const lang=document.querySelector("#lang")
+const submit=document.querySelector("#submit")
+
+
 export const afichier=(tab)=>{
     counter.textContent=tab.length+" séries affichées"
     show.innerHTML="" 
     empty.hidden=true   
+
+    
     for(let i=0;i<tab.length;i++){
         const div=document.createElement("div")
         div.className="rounded-t-2xl"
@@ -48,9 +59,46 @@ export const afichier=(tab)=>{
         show.append(div)
         div.append(img,text)
         text.append(bundle,badge,descri)
-        
+        sup.addEventListener("click",()=>{
+            const con=confirm("do u want to delete this element")
+            if(con&&!toggle.on){
+                div.remove()
+                remove(tab[i].id)
+
+            }
+        })
+        mod.addEventListener("click",async()=>{
+            nom.value=tab[i].name
+            genre.value=tab[i].genres.join(",")
+            lang.value=tab[i].language
+            description.value=tab[i].summary
+            submit.textContent="modifier"
+            toggle.on=true
+            toggle.id=tab[i].id//localstorage
+            submit.addEventListener("click",(e)=>{
+                e.preventDefault()
+                tab[i].name=nom.value.trim()
+                tab[i].genres=genre.value.split(",").map(elm=>elm.trim())
+                tab[i].language=lang.value.trim()
+                tab[i].summary= description.value.trim()
+                title.textContent=tab[i].name
+                badge.innerHTML=""
+                tab[i].genres.forEach(element => {
+                    const p=document.createElement("p")
+                    p.textContent=element
+                    p.className="bg-[#292929] w-fit text-center rounded-xl px-1.5"
+                    badge.append(p)
+                    
+                });
+                descri.innerHTML=tab[i].summary
+                submit.textContent="+ Ajouter la série"
+                toggle.on=false
+                update(tab[i].id,tab[i])
+            })
+        })
     }
   if(tab.length==0){
     empty.hidden=false
   }
 }
+

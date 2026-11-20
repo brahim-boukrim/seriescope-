@@ -4,7 +4,6 @@ import { create } from "../services/serieService.js"
 const nom=document.querySelector("#nom")
 const description=document.querySelector("#description")
 const genre=document.querySelector("#genre")
-const photo=document.querySelector("#photo")
 const lang=document.querySelector("#lang")
 
 

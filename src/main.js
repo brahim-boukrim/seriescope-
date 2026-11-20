@@ -2,6 +2,7 @@ import { getAll ,getById,create,reset,update,remove} from "./services/serieServi
 import { afichier } from "./ui/cards.js"
 import { makefilter,filter } from "./ui/filters.js"
 import { add } from "./ui/form.js"
+import { toggle } from "./data/store.js"
 
 
 const searche=document.querySelector("#lookup")
@@ -16,7 +17,6 @@ const form=document.querySelector("#form")
 
 
 async function init() { 
-    reset()  
     const data=await filter(getAll,searche.value)
     afichier(data,show,empty)
     makefilter(await getAll(),filtre,language)
@@ -39,7 +39,9 @@ async function init() {
         localStorage.setItem("language",language.value)
     })
     submit.addEventListener("click", (e)=>{
-        add(e,searche.value,genre.value,language.value)
+        if(!toggle.on){
+            add(e,searche.value,genre.value,language.value)
+        }
     })
     form.addEventListener("reset", ()=>{
         setTimeout(async()=>{

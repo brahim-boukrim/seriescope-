@@ -6,7 +6,7 @@ export const getById =async (id)=>(await api.get(`/series/${id}`)).data
 
 export const create=async (obj) =>(await api.post(`/series/`,obj)).data
 
-export const update=async (id,name,genre,language)=>await api.patch(`/series/${id}`,{name,language,genre:genre})
+export const update=async (id,obj)=>await api.patch(`/series/${id}`,obj)
 
 export const remove = async (id)=>await api.delete(`/series/${id}`)
 
