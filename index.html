@@ -18,11 +18,13 @@
         <form class=" border-2 border-[#393939] p-2 rounded-xl mt-3 flex flex-col justify-between gap-1">
             <h2>Ajouter une série</h2>
             <p class="text-md text-gray-400">Les champs marqués d’un * sont obligatoires.</p>
-            <div class="grid grid-cols-1 gap-1.5 md:grid-cols-2">
+            <div class="grid grid-cols-1 gap-1.5 md:grid-cols-3">
                 <div class="flex flex-col justify-between gap-0.5 mb-0.5"><label>Nom de la série *</label>
                 <input id="nom" class="border-2 border-[#393939] rounded-md p-1.5" type="text" placeholder="Ex. The Bear"></div>
                 <div class="flex flex-col justify-between gap-0.5 mb-0.5"><label>Genre(s) *<span class="ml-1 text-md text-gray-400">séparés par des virgules</span></label>
                 <input id="genre" class="border-2 border-[#393939] rounded-md p-1.5" type="text" placeholder="Ex. Drame, Comédie"></div>
+                <div class="flex flex-col justify-between gap-0.5 mb-0.5"><label>Langue du serie*</label>
+                <input id="lang" class="border-2 border-[#393939] rounded-md p-1.5" type="text" placeholder="Ex. English"></div>
             </div>
             <div class="flex flex-col justify-between gap-0.5 mb-0.5">
             <label>Description<span class="ml-1 text-md text-gray-400">facultative</span></label>
@@ -30,7 +32,7 @@
             </div>
 
             <div class="w-full flex justify-between py-3 gap-12 ">  
-                    <div class="bg-amber-200 flex justify-center items-center w-full rounded-md md:w-40"><input type="file" accept="image/*" id="photo" class=" text-black w-27.5  file:hidden" ></div>
+                    <div hidden class="bg-amber-200 flex justify-center items-center w-full rounded-md md:w-40"><input type="file" accept="image/*" id="photo" class=" text-black w-27.5  file:hidden" ></div>
                      <button id="submit" class="bg-white  h-10 rounded-md text-black w-full md:w-40"><i class="fa-solid fa-plus"></i> Ajouter la série</button></div>
         </form>
 
@@ -39,7 +41,7 @@
         <h2 class="font-bold text-2xl">Catalogue des séries</h2>
         <p class=" text-md text-gray-400">Recherche par nom ou explore un genre.</p>
 
-        <form class=" border-2 border-[#393939] p-2 rounded-xl mt-3 grid grid-cols-1 gap-1.5 md:grid-cols-2">
+        <form id="form" class=" border-2 border-[#393939] p-2 rounded-xl mt-3 grid grid-cols-1 gap-1.5 md:grid-cols-2">
             <div class="flex flex-col justify-end md:col-span-3">
                 <label class="text-xl" >Recherche</label>
                 <input id="lookup" class="border-2 border-[#393939] rounded-md p-1.5" type="text" placeholder="Ex. Breaking Bad">
@@ -58,7 +60,7 @@
                     </select>
                 </div>
             </div>
-                    <button class="w-full border-2 border-[#393939] rounded-md md:mt-9  h-fit p-1.5 "><i class="fa-solid fa-rotate-right"></i> Réinitialiser</button>
+                    <button type="reset"  class="w-full border-2 border-[#393939] rounded-md md:mt-9  h-fit p-1.5 "><i class="fa-solid fa-rotate-right"></i> Réinitialiser</button>
             </div>
             
         </form>
@@ -66,15 +68,13 @@
     </section>
     
     <section  class="p-4">
-        <p id="counter" class="text-white">10 séries affichées</p>
+        <p id="counter" class="text-gray-400">10 séries affichées</p>
         <div id="show" class="grid grid-cols-1  gap-5 text-white  md:grid-cols-3">
            
         </div>
         <div class="w-full py-2 text-white flex justify-center text-3xl " id="empty">no result was found !</div>
     </section>
-    <div class="w-full flex justify-center pb-10">
-            <div class=" py-1.5 px-4 rounded-xl  text-white border-2 border-[#393939] cursor-pointer" id="pages">show more</div> 
-</div>
+    
     <script type="module" src="src/main.js"></script>
 </body>
 </html>
